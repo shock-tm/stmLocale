@@ -46,7 +46,7 @@
     "dialog_overwrite":"上書きしますか?",
     "dialog_idLimit":"最大99まで",
     "dialog_pageRange":"ページ範囲を指定",
-    "dialog_pageRangeError":"ページ範囲が不正です",
+    "dialog_pageRangeError":"ページ範囲が不正",
     "defult_newName":"新規ワークスペース",
     "defult_openName":"ドキュメントを開く",
     "defult_placeName":"配置",
