@@ -24,6 +24,7 @@
     "context_editContextMenu":"コンテキストメニュー編集",
     "context_subopenFile":"アプリケーションで開く",
     "context_openFile":"ファイルを開く",
+    "context_scriptRun":"スクリプトを実行",
     "context_editButton":"ボタンを編集",
     "dialog_noWorkSpace":"ワークスペースがありません",
     "dialog_selectWorkSpace":"ワークスペースを選択",
