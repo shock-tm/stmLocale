@@ -31,6 +31,7 @@
     "dialog_newWorkspaceName":"新しいワークスペース名",
     "dialog_deleteWorkSpace":"削除するワークスペース選択",
     "dialog_newWorkspaceSource":"元になるワークスペース",
+    "dialog_panelWorkspaceSource":"変更するパネルのワークスペース",
     "dialog_dirSetting":"ディレクトリ設定",
     "dialog_errorPath":"パスの形式が無効です。",
     "dialog_clearCache":"すべての設定をクリアしますか?",
