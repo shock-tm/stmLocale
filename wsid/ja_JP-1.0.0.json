@@ -3,7 +3,7 @@
     "menu_changeWorkSpace":"ワークスペースを変更",
     "menu_newWorkSpace":"新規ワークスペース作成",
     "menu_deleteWorkSpace":"ワークスペースを削除",
-    "menu_jsonOpen":"ワークスペースファイルを編集",
+    "menu_editJson":"ワークスペースファイルを編集",
     "menu_changeFolder":"ワークスペースフォルダ変更",
     "menu_openFolder":"ワークスペースフォルダを開く",
     "menu_leftClickMode":"アイコンクリックでメニュー表示",
