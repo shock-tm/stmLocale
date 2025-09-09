@@ -69,7 +69,7 @@
     "localeMenu_nativeDirectory":"ネイティブディレクトリ",
     "localeMenu_place":"配置",
     "localeMenu_optionPlace":"オプション配置",
-    "locale_newWorkspaceName":"新しいワークスペース名",
+    "locale_workSpaceName":"新しいワークスペース名",
     "locale_workSpacePlaceExt":"配置ファイルの拡張子",
     "locale_newWorkspaceSource":"元になるワークスペース",
     "locale_panelWorkspaceSource":"起動時に適用するパネルワークスペース",
