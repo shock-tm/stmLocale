@@ -33,7 +33,7 @@
     "dialog_dirSetting":"ディレクトリ設定",
     "dialog_errorPath":"パスの形式が無効です。",
     "dialog_clearCache":"すべての設定・キャッシュをクリアしますか?",
-    "dialog_clearTabCache":"ワークスペースのキャッシュは削除しますか?",
+    "dialog_clearWsCache":"ワークスペースのキャッシュは削除しますか?",
     "dialog_tabDelete":"このタブを削除しますか？",
     "dialog_tabLast":"最後のタブは削除できません",
     "dialog_actionTabProperty":"タブの新しい名前",
