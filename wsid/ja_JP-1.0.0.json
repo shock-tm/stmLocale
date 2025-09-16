@@ -48,6 +48,7 @@
     "dialog_idLimit":"最大99まで",
     "dialog_pageRange":"ページ範囲を指定",
     "dialog_pageRangeError":"ページ範囲が不正",
+    "dialog_jsonError":"は破損しています",
     "defult_newName":"新規ワークスペース",
     "defult_openName":"ドキュメントを開く",
     "defult_placeName":"配置",
