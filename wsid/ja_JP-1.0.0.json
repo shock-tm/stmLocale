@@ -79,7 +79,7 @@
     "locale_nameLabel":"タブの名前",
     "locale_pathLabel":"パス",
     "locale_extLabel":"拡張子 (カンマ区切り　例 ai,psd or *)",
-    "locale_previewDisplayLabel":"プレビュー表示",
+    "locale_thumbnailDisplayLabel":"サムネイル表示",
     "locale_fLevelLabel":"フォルダ階層",
     "locale_listOrderLabel":"並び順",
     "locale_linkCheckLabel":"リンクのチェック",
