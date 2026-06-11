@@ -1,0 +1,212 @@
+body{
+    margin: 0;
+    overflow: hidden;
+}
+svg{
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+#viewer {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+#textHead {
+    display: flex;
+    height: 32px;
+    width: 100vw;
+    overflow: hidden;
+}
+.textLabel {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    font-size: 16px;
+    padding-left: 20px;
+    padding-top: 3px;
+}
+.textLabel:last-child {
+    margin-left: 30px;
+}
+.textLabel svg{
+    padding-top: 3px;
+    margin-right: 5px;
+    fill: white;
+    float: left;
+}
+#compare{
+    width:100vw;
+    height:calc(100vh - 32px);
+    flex: auto;
+}
+.imgWrap {
+    flex: 1;
+    overflow: hidden;
+    border: 1px solid #444;
+    position: relative;
+    cursor: grab;
+}
+.viewImg,.opacityImg {
+    transform-origin: center center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    user-select: none;
+    pointer-events: none;
+}
+.opacityImg {
+    opacity: 0.2;
+}
+.imgLabel{
+    font-size: 16px;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    right: 10px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border-radius: 6px;
+    z-index: 1000;
+    pointer-events: auto;
+    user-select: none;
+}
+.imgLabel.hide{
+    opacity: 0;
+    transform: translateY(-10px);
+}
+.imgLabel svg{
+    margin-right: 5px;
+    fill: white;
+}
+.closeLabel{
+    margin-left: auto;
+}
+#infoPanel{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    transition: transform .25s ease;
+    z-index: 9998;
+    user-select: none;
+}
+#infoPanel.closed{
+    transform: translateY(100%);
+}
+#infoToggle{
+    position: fixed;
+    left: 98%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 18px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    user-select: none;
+}
+#infoBody{
+    max-height: 200px;
+    overflow: auto;
+    padding: 10px;
+    padding-right: 60px;
+    user-select: none;
+    font-size: 85%;
+}
+.key{
+    font-size:85%;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0px 5px 0px 5px;
+    margin: 0 5px 0 10px;
+    user-select: none;
+}
+#newPixel{
+    background:rgb(255,0,255);
+}
+#deletePixel{
+    background:rgb(0,255,0)
+}
+#changePixel{
+    background:rgb(0,255,255);
+}
+.pixels{
+    font-size:85%;
+    padding: 0 20px;
+    margin: 0 5px 0 10px;
+    cursor: pointer;
+}
+#opacityRange{
+    width: 75px;
+}
+#licenseSpan{
+    float: right;
+}
+#licenseSpan a{
+    color: #fff;
+    margin-left: 10px;
+}
+.mergely-editor .mergely.ch.ind.lhs{
+    text-decoration: none !important;
+    background-color: rgba(255, 0, 0, 0.25) !important;
+}
+.mergely-editor .mergely.ch.ina.rhs{
+    background-color: rgba(0, 0, 255, 0.25) !important;
+}
+.mergely-editor .mergely.ch.d.lhs{
+    text-decoration: none !important;
+}
+/*ここからツールバー*/
+#toolDiv{
+    z-index: 10;
+    position: fixed;
+    padding: 0;
+    border: 1px solid #888;
+    background-color: #ccc;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    top: 50px;
+    left: 10px;
+    width: 24px;
+}
+#grabDiv{
+    background: #444;
+    cursor: move;
+    width: 24px;
+    height: 6px;
+}
+.toolItem{
+    margin-top: 3px;
+    background: none;
+    width: 20px;
+    height: 20px;
+    border-radius:2px;
+    margin: 2px 2px;
+}
+.toolItem:hover{
+    background: #888; 
+}
+.toolItem.select{
+    background: #666; 
+}
+.toolBorder{
+    border: 1px solid #aaa;
+    margin: 0 1px;
+}
