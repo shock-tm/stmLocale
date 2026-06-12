@@ -146,6 +146,9 @@ async function fitToScreen() {
     }else if(saiFlag[pages-1]==="false"){
         document.getElementById('name3').textContent="No difference!";
         document.getElementsByClassName('imgLabel')[2].style.backgroundColor="blue";
+    }else if(saiFlag[pages-1]==="sizeOut"){
+        document.getElementById('name3').textContent="Size out!";
+        document.getElementsByClassName('imgLabel')[2].style.backgroundColor="green";
     }else{
         document.getElementById('name3').textContent="No page!";
         document.getElementsByClassName('imgLabel')[2].style.backgroundColor="green";
@@ -336,6 +339,7 @@ async function imgSet(){
     opImgs[2].src=`img1_${String(pages).padStart(3,"000")}.png`;
     document.getElementById('name1').textContent=`${json.name1} - page ${pages} / ${json.pages}`;
     document.getElementById('name2').textContent=`${json.name2} - page ${pages} / ${json.pages}`;
+    document.getElementsByClassName('imgLabel')[0].style.backgroundColor="rgba(0,0,0,0.5)";
     document.getElementsByClassName('imgLabel')[1].style.backgroundColor="rgba(0,0,0,0.5)";
     if(saiFlag[pages-1]==="noImage1"){
         document.getElementById('name1').textContent=`${json.name1} - No page`;
@@ -346,6 +350,10 @@ async function imgSet(){
     }else if(saiFlag[pages-1]==="noImage2"){
         document.getElementById('name2').textContent=`${json.name2} - No page`;
         document.getElementsByClassName('imgLabel')[1].style.backgroundColor="green";
+        opImgs[0].removeAttribute("src");
+        opImgs[1].removeAttribute("src");
+        opImgs[2].removeAttribute("src");
+    }else if(saiFlag[pages-1]==="sizeOut"){
         opImgs[0].removeAttribute("src");
         opImgs[1].removeAttribute("src");
         opImgs[2].removeAttribute("src");
