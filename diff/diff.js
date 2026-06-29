@@ -1,4 +1,4 @@
-const toolDiv = document.getElementById('toolDiv');
+﻿const toolDiv = document.getElementById('toolDiv');
 const grabDiv = document.getElementById('grabDiv');
 const textMain = document.getElementById('textViewer');
 const viewer = document.getElementById('viewer');
@@ -231,23 +231,31 @@ document.getElementById('imgsBt').onclick = async() => {
 //うっすら表示
 document.getElementById('opcityBt').onclick = async() => {
     if(opImgs[0].style.opacity==="0"){
+        json.opacity=opacityRange.value/100;
         document.getElementById('opcityBt').style.background="#777";
-        opImgs.forEach(opa => {
-            opa.style.opacity=json.opacity;
-        });
         document.getElementById('sliderSpan').style.display="inline-block";
+        document.getElementById('clockBt').style.display="block";
     }else{
+        json.opacity=0;
         document.getElementById('opcityBt').style.background="none";
-        opImgs.forEach(opa => {
-            opa.style.opacity=0;
-        });
         document.getElementById('sliderSpan').style.display="none";
+        if(json.aori==="false"){
+            document.getElementById('clockBt').style.display="none";
+        }
     }
+    opImgs.forEach(opa => {
+        opa.style.opacity=json.opacity;
+    });
 };
 //タイマー
 document.getElementById('clockBt').onclick = async() => {
     if(json.startStop==="true"){
         json.startStop="false";
+        if(json.opacity!==0){
+            opImgs[0].style.display="block";
+            opImgs[1].style.display="block";
+            opImgs[2].style.display="block";
+        }
     }else{
         json.startStop="true";
     };
@@ -401,7 +409,6 @@ async function changeImgMode(){
             document.getElementById('pixelsSpan').style.display="none";
         }
         document.getElementById('spaceSpan').style.display="inline-block";
-        document.getElementById('clockBt').style.display="block";
         document.getElementById('imgsBt').style.background="none";
     }else if(json.mode==="123"){
         imgWraps.forEach(wrap => {
@@ -429,6 +436,9 @@ async function changeImgMode(){
     opImgs.forEach(opa => {
         opa.style.opacity=json.opacity;
     });
+    if(json.opacity!=0 ||json.aori==="true"){
+        document.getElementById('clockBt').style.display="block";
+    }
     await fitToScreen();
 }
 //タイマーの切り替え
@@ -534,6 +544,16 @@ async function aoriClick(){
                 imgWraps[1].style.display="block";
                 imgWraps[2].style.display="none";
             }
+        }
+    }else{
+        if(opImgs[0].style.display==="block" || opImgs[0].style.display===""){
+            opImgs[0].style.display="none";
+            opImgs[1].style.display="none";
+            opImgs[2].style.display="none";
+        }else{
+            opImgs[0].style.display="block";
+            opImgs[1].style.display="block";
+            opImgs[2].style.display="block";
         }
     }
 };
