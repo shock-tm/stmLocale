@@ -17,8 +17,38 @@ const opacityRange=document.getElementById("opacityRange");
 const opacity=document.getElementById("opacity");
 const panel=document.getElementById("infoPanel");
 const toggle =document.getElementById("infoToggle");
+var lang={
+    setResult:"Difference result",
+    setNoDiff:"No difference!",
+    setSizeOut:"Size out!",
+    setNoPage:"No page!",
+    setPage:"page",
+    setEscMsg:"Text and image switch",
+    setSpace:"Space",
+    setSpaceMsg:"change image",
+    setWheel:"Mouse wheel",
+    setWheelMsg:"Zoom",
+    setOpacity:"Opacity"
+}
+if(json.localeMode==="ja_JP"){lang={
+    setResult:"差分結果",
+    setNoDiff:"変更箇所無し！",
+    setSizeOut:"比較サイズが相違！",
+    setNoPage:"ページがありません！",
+    setPage:"ページ",
+    setEscMsg:"テキスト・イメージを切り替え",
+    setSpace:"スペース",
+    setSpaceMsg:"イメージ変更",
+    setWheel:"マウスホイール",
+    setWheelMsg:"拡大・縮小",
+    setOpacity:"透明度"
+}}
 /*初期読み込み*/
 document.addEventListener("DOMContentLoaded",async function(){
+    document.getElementById("escSpan").innerHTML =`<span class="key">Esc</span>${lang.setEscMsg}`;
+    document.getElementById("spaceSpan").innerHTML =`<span class="key">${lang.setSpace}</span>${lang.setSpaceMsg}`;
+    document.getElementById("wheelSpan").innerHTML =`<span class="key">${lang.setWheel}</span>${lang.setWheelMsg}`;
+    document.querySelector("#sliderSpan span").textContent=lang.setOpacity;
     if(json.pages===1){
         document.getElementById('nextBt').style.display="none";
         document.getElementById('previewBt').style.display="none";
@@ -30,12 +60,12 @@ document.addEventListener("DOMContentLoaded",async function(){
     const d=json.name1;
     json.name1=
         `${d[0]}${d[1]}${d[2]}${d[3]}/${d[4]}${d[5]}/${d[6]}${d[7]} ${d[9]}${d[10]}:${d[10]}${d[11]}:${d[12]}${d[13]}`;
-    document.getElementById('name1').textContent=`${json.name1} - page ${pages} / ${json.pages}`;
+    document.getElementById('name1').textContent=`${json.name1} - ${lang.setPage} ${pages} / ${json.pages}`;
     document.getElementById('textName1').textContent=`${json.title} - ${json.name1}`;
     const e=json.name2;
     json.name2=
         `${e[0]}${e[1]}${e[2]}${e[3]}/${e[4]}${e[5]}/${e[6]}${e[7]} ${e[9]}${e[10]}:${e[10]}${e[11]}:${e[12]}${e[13]}`;
-    document.getElementById('name2').textContent=`${json.name2} - page ${pages} / ${json.pages}`;
+    document.getElementById('name2').textContent=`${json.name2} - ${lang.setPage} ${pages} / ${json.pages}`;
     document.getElementById('textName2').textContent=`${json.title} - ${json.name2}`;
     document.addEventListener('keydown',async function (e) {
         if (e.code == 'Space') {
@@ -141,16 +171,16 @@ document.addEventListener("DOMContentLoaded",async function(){
 //初期フィット関数
 async function fitToScreen() {
     if(saiFlag[pages-1]==="true"){
-        document.getElementById('name3').textContent="Difference result";
+        document.getElementById('name3').textContent=lang.setResult;
         document.getElementsByClassName('imgLabel')[2].style.backgroundColor="red";
     }else if(saiFlag[pages-1]==="false"){
-        document.getElementById('name3').textContent="No difference!";
+        document.getElementById('name3').textContent=lang.setNoDiff
         document.getElementsByClassName('imgLabel')[2].style.backgroundColor="blue";
     }else if(saiFlag[pages-1]==="sizeOut"){
-        document.getElementById('name3').textContent="Size out!";
+        document.getElementById('name3').textContent=lang.setSizeOut;
         document.getElementsByClassName('imgLabel')[2].style.backgroundColor="green";
     }else{
-        document.getElementById('name3').textContent="No page!";
+        document.getElementById('name3').textContent=lang.setNoPage
         document.getElementsByClassName('imgLabel')[2].style.backgroundColor="green";
     }
     const visibleWraps =
@@ -345,8 +375,8 @@ async function imgSet(){
     opImgs[0].src=`img2_${String(pages).padStart(3,"000")}.png`;
     opImgs[1].src=`img1_${String(pages).padStart(3,"000")}.png`;
     opImgs[2].src=`img1_${String(pages).padStart(3,"000")}.png`;
-    document.getElementById('name1').textContent=`${json.name1} - page ${pages} / ${json.pages}`;
-    document.getElementById('name2').textContent=`${json.name2} - page ${pages} / ${json.pages}`;
+    document.getElementById('name1').textContent=`${json.name1} - ${lang.setPage} ${pages} / ${json.pages}`;
+    document.getElementById('name2').textContent=`${json.name2} - ${lang.setPage} ${pages} / ${json.pages}`;
     document.getElementsByClassName('imgLabel')[0].style.backgroundColor="rgba(0,0,0,0.5)";
     document.getElementsByClassName('imgLabel')[1].style.backgroundColor="rgba(0,0,0,0.5)";
     if(saiFlag[pages-1]==="noImage1"){
