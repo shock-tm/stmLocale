@@ -157,7 +157,8 @@ document.addEventListener("DOMContentLoaded",async function(){
             toggle.textContent = "▲";
         }else{
             toggle.textContent = "▼";
-        }
+        };
+        toggle.blur();
     });
     document.querySelectorAll(".closeLabel")
     .forEach(btn => {
@@ -513,11 +514,9 @@ async function chengeIT(bool){
         textMain.style.display="none";
         toolDiv.style.display="block";
         document.getElementById('wheelSpan').style.display="inline-block";
-        console.log(opImgs[0].style.opacity!=="0")
         if(opImgs[0].style.opacity!=="0"){
             document.getElementById('sliderSpan').style.display="inline-block";
         }
-        if(json.opacity)
         if(json.mode==="123"||json.mode==="13"||json.mode==="23"){
             document.getElementById('pixelsSpan').style.display="inline-block";
         }
@@ -575,7 +574,7 @@ async function aoriClick(){
                 imgWraps[2].style.display="none";
             }
         }
-    }else{
+    }else if(json.startStop==="true"){
         if(opImgs[0].style.display==="block" || opImgs[0].style.display===""){
             opImgs[0].style.display="none";
             opImgs[1].style.display="none";
